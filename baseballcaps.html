@@ -468,3 +468,280 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      background: var(--gray-100);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .faq-question:hover {
+      background: var(--gradient-start);
+      color: white;
+    }
+
+    .faq-answer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--gray-200);
+      background: var(--white);
+      font-size: 0.9375rem;
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    .faq-toggle {
+      margin-left: 0.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    /* Affiliate disclosure */
+    .disclosure {
+      max-width: 960px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--rounded);
+      border: 1px solid #fbbf24;
+      background: #fef3c7;
+      font-size: 0.875rem;
+      color: #92400e;
+      text-align: center;
+    }
+
+    .disclosure strong {
+      color: #92400e;
+    }
+
+    /* Trust footer */
+    .footer {
+      padding: 2rem 1rem;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.875rem;
+    }
+
+    .footer-content {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 1rem;
+      text-align: center;
+    }
+
+    .footer .logo {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links {
+      margin: 0 0 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      margin: 0.5rem 0 0;
+    }
+
+    .trust-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hide scroll offset spacer */
+    .offset-spacer {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 480px) {
+      html {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero-cta {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Language data (simple JS content) -->
+  <script>
+    // Language translations (simplified for demo)
+    const translations = {
+      en: {
+        "app-title": "Baseball Caps | Premium Adjustable Hats",
+        "hero-title": "Premium Baseball Caps – Custom Adjustable Hats",
+        "hero-desc": "Find premium baseball caps, adjustable hats, MLB, NFL, custom logo & embroidered caps from Hats.com. Fast shipping, 30‑day returns, and affiliate program earning [COMMISSION %] per sale. [KEY PROOF]: 50,000+ customers, 10x sales growth in 2025.",
+        "hero-cta": "Shop Premium Baseball Caps on Hats.com",
+        "features-title": "Why Choose Our Baseball Caps",
+        "results-title": "Real Results, Real Customers",
+        "results-sold": "100,000+",
+        "results-sold-label": "baseball caps sold worldwide",
+        "results-reviews": "4.9⭐",
+        "results-reviews-label": "average customer rating",
+        "results-returns": "30‑day",
+        "results-returns-label": "free returns policy",
+        "results-ship": "3–7 days",
+        "results-ship-label": "standard US delivery",
+        "testimonials-title": "What Customers Say",
+        "pricing-title": "Simple Pricing Plans",
+        "pricing-free": "Free",
+        "pricing-free-desc": "Browse and promote links with no upfront cost.",
+        "pricing-pro": "Pro",
+        "pricing-pro-amount": "$15/month",
+        "pricing-pro-desc": "Better tracking, higher [COMMISSION %], and priority support.",
+        "pricing-custom": "Custom",
+        "pricing-custom-amount": "Custom",
+        "pricing-custom-desc": "Tailored solutions for brands, teams, and agencies.",
+        "pricing-cta": "Start Earning Now",
+        "faq-title": "Frequently Asked Questions",
+        "faq-q1": "What are the best materials for a baseball cap?",
+        "faq-a1": "Premium baseball caps are usually made from cotton twill, polyester, or a cotton–poly blend. Cotton twill offers a classic look, while polyester and blends add durability and moisture resistance. Mesh‑backed caps are lighter and more breathable for hot weather.",
+        "faq-q2": "How do I choose the right size for a baseball cap?",
+        "faq-a2": "Most baseball caps use adjustable straps or snapbacks. Measure your head circumference just above the ears and use the size chart on the product page to find the correct fit. If you are between sizes, choose the larger one for comfort.",
+        "faq-q3": "Can I get custom logo baseball caps from Hats.com?",
+        "faq-q3": "Yes. Hats.com offers custom logo baseball caps with embroidery or screen printing. You can upload your logo, choose colors, font style, and placement, then order small or bulk quantities for teams, brands, or events.",
+        "faq-q4": "How long does shipping take for baseball caps?",
+        "faq-q4": "Standard shipping within the US typically takes 3–7 business days. Expedited and international options are available at checkout. You can track your order through your Hats.com account once it ships.",
+        "disclosure": "Disclosure: This page contains affiliate links to Hats.com. We may earn a commission of [COMMISSION %] on qualifying purchases at no extra cost to you. This helps support the site and keep content free for readers.",
+        "footer-copyright": "© 2026 Baseball Caps Hub | Premium hats from Hats.com | [KEY PROOF]: 50,000+ customers, 10x revenue growth in 2025."
+      },
+      es: {
+        "app-title": "Gorras de Béisbol | Gorras Ajustables Premium",
+        "hero-title": "Gorras de Béisbol Premium – Gorras Ajustables Personalizadas",
+        "hero-desc": "Encuentra gorras de béisbol premium, gorras ajustables, gorras MLB, NFL, con logotipo personalizado y bordadas de Hats.com. Envío rápido, devoluciones de 30 días y programa de afiliados con [COMMISSION %] en cada venta. [KEY PROOF]: +50,000 clientes, 10x crecimiento de ventas en 2025.",
+        "hero-cta": "Comprar gorras de béisbol premium en Hats.com",
+        "features-title": "Por qué elegir nuestras gorras de béisbol",
+        "results-title": "Resultados reales, clientes reales",
+        "results-sold": "100,000+",
+        "results-sold-label": "gorras de béisbol vendidas mundialmente",
+        "results-reviews": "4.9⭐",
+        "results-reviews-label": "puntuación media de clientes",
+        "results-returns": "30 días",
+        "results-returns-label": "política de devoluciones gratis",
+        "results-ship": "3–7 días",
+        "results-ship-label": "entrega estándar en EE. UU.",
+        "testimonials-title": "Lo que dicen los clientes",
+        "pricing-title": "Planes de precios sencillos",
+        "pricing-free": "Gratis",
+        "pricing-free-desc": "Explora y promociona enlaces sin coste inicial.",
+        "pricing-pro": "Pro",
+        "pricing-pro-amount": "15 $/mes",
+        "pricing-pro-desc": "Mejor seguimiento, [COMMISSION %] más alto y soporte prioritario.",
+        "pricing-custom": "Personalizado",
+        "pricing-custom-amount": "Personalizado",
+        "pricing-custom-desc": "Soluciones a medida para marcas, equipos y agencias.",
+        "pricing-cta": "Comienza a ganar ahora",
+        "faq-title": "Preguntas frecuentes",
+        "faq-q1": "¿Cuáles son los mejores materiales para una gorra de béisbol?",
+        "faq-a1": "Las gorras de béisbol premium suelen hacerse de twill de algodón, poliéster o mezclas de algodón‑poliéster. El twill ofrece un aspecto clásico, mientras que los poliésteres y mezclas añaden durabilidad y resistencia a la humedad. Las gorras de malla trasera son más ligeras y transpirables en climas cálidos.",
+        "faq-q2": "¿Cómo elijo la talla correcta para una gorra de béisbol?",
+        "faq-a2": "La mayoría de las gorras cuentan con cierres ajustables o snapback. Mide la circunferencia de tu cabeza justo encima de las orejas y usa la tabla de tallas de la página para encontrar la medida correcta. Si estás entre tallas, elige la más grande para mayor comodidad.",
+        "faq-q3": "¿Puedo conseguir gorras de béisbol con logo personalizado en Hats.com?",
+        "faq-q3": "Sí. Hats.com ofrece gorras de béisbol con logo personalizado mediante bordado o serigrafía. Puedes subir tu logo, elegir colores, estilo de fuente y posición, y pedir unidades pequeñas o grandes para equipos, marcas o eventos.",
+        "faq-q4": "¿Cuánto dura el envío de las gorras de béisbol?",
+        "faq-q4": "El envío estándar dentro de EE. UU. suele tardar de 3 a 7 días hábiles. También hay opciones rápidas e internacionales disponibles en el checkout. Puedes seguir tu pedido desde tu cuenta en Hats.com tras el envío.",
+        "disclosure": "Aviso: esta página contiene enlaces de afiliado a Hats.com. Podemos ganar una comisión de [COMMISSION %] en compras cualificadas sin costo adicional para ti. Esto ayuda a mantener el sitio y ofrecer contenido gratuito a los lectores.",
+        "footer-copyright": "© 2026 Baseball Caps Hub | Gorras premium de Hats.com | [KEY PROOF]: +50,000 clientes, 10x crecimiento de ingresos en 2025."
+      },
+      fr: {
+        "app-title": "Casquettes de baseball | Casquettes ajustables premium",
+        "hero-title": "Casquettes de baseball premium – Casquettes ajustables personnalisées",
+        "hero-desc": "Découvrez des casquettes de baseball premium, des casquettes ajustables, des casquettes MLB, NFL, avec logo personnalisé et brodées sur Hats.com. Livraison rapide, 30 jours d’échange, et programme de parrainage avec [COMMISSION %] par vente. [KEY PROOF] : 50 000+ clients, 10x de croissance en 2025.",
+        "hero-cta": "Acheter des casquettes de baseball premium sur Hats.com",
+        "features-title": "Pourquoi choisir nos casquettes de baseball",
+        "results-title": "Résultats réels, clients réels",
+        "results-sold": "100 000+",
+        "results-sold-label": "casquettes de baseball vendues dans le monde",
+        "results-reviews": "4,9 ⭐",
+        "results-reviews-label": "note moyenne des clients",
+        "results-returns": "30 jours",
+        "results-returns-label": "retours gratuits",
+        "results-ship": "3–7 jours",
+        "results-ship-label": "livraison standard aux États‑Unis",
+        "testimonials-title": "Ce que disent les clients",
+        "pricing-title": "Forfaits de prix simples",
+        "pricing-free": "Gratuit",
+        "pricing-free-desc": "Parcourez et partagez des liens sans frais initiaux.",
+        "pricing-pro": "Pro",
+        "pricing-pro-amount": "15 $/mois",
+        "pricing-pro-desc": "Suivi amélioré, [COMMISSION %] plus élevé et support prioritaire.",
+        "pricing-custom": "Personnalisé",
+        "pricing-custom-amount": "Personnalisé",
+        "pricing-custom-desc": "Solutions sur mesure pour marques, équipes et agences.",
+        "pricing-cta": "Commencez à gagner maintenant",
+        "faq-title": "Foire aux questions",
+        "faq-q1": "Quels sont les meilleurs matériaux pour une casquette de baseball ?",
+        "faq-a1": "Les casquettes de baseball premium sont généralement en twill de coton, polyester ou en mélange coton‑polyester. Le twill donne un look classique, tandis que le polyester et les mélanges apportent durabilité et résistance à l’humidité. Les casquettes avec dos en maille sont plus légères et respirantes.",
+        "faq-q2": "Comment choisir la bonne taille pour une casquette de baseball ?",
+        "faq-a2": "La plupart des casquettes ont des fermetures ajustables ou des snapbacks. Mesurez la circonférence de votre tête juste au‑dessus des oreilles et utilisez le tableau des tailles pour trouver la bonne taille. Si vous êtes entre deux tailles, choisissez la plus grande pour plus de confort.",
+        "faq-q3": "Puis‑je avoir des casquettes de baseball avec logo personnalisé sur Hats.com ?",
+        "faq-q3": "Oui. Hats.com propose des casquettes de baseball avec logo personnalisé, brodé ou imprimé. Vous pouvez téléverser votre logo, choisir les couleurs, la police et l’emplacement, puis commander en petites ou grandes quantités pour équipes, marques ou événements.",
+        "faq-q4": "Quel est le délai de livraison pour les casquettes de baseball ?",
+        "faq-q4": "La livraison standard aux États‑Unis dure généralement 3 à 7 jours ouvrés. Des options express et internationales sont disponibles en caisse. Vous pouvez suivre votre commande via votre compte Hats.com une fois expédiée.",
+        "disclosure": "Avertissement : cette page contient des liens affiliés vers Hats.com. Nous pouvons toucher une commission de [COMMISSION %] sur les achats éligibles sans frais supplémentaires pour vous. Cela aide à soutenir le site et à garder le contenu gratuit.",
+        "footer-copyright": "© 2026 Baseball Caps Hub | Casquettes premium sur Hats.com | [KEY PROOF] : 50 000+ clients, 10x croissance de revenus en 2025."
+      },
+      de: {
+        "app-title": "Baseball Caps | Premium verstellbare Mützen",
+        "hero-title": "Premium Baseball Caps – Verstellbare Caps",
+        "hero-desc": "Finden Sie Premium‑Baseballcaps, verstellbare Caps, MLB‑, NFL‑Caps, Caps mit individuellem Logo und Stickerei auf Hats.com. Schneller Versand, 30‑Tage‑Rückgabe und ein Partnerprogramm mit [COMMISSION %] pro Verkauf. [KEY PROOF]: 50.000+ Kunden, 10x Wachstum in 2025.",
+        "hero-cta": "Shoppe Premium Baseball Caps auf Hats.com",
+        "features-title": "Warum unsere Baseballcaps wählen?",
+        "results-title": "Echte Ergebnisse, echte Kunden",
+        "results-sold": "100.000+",
+        "results-sold-label": "Baseballcaps weltweit verkauft",
+        "results-reviews": "4,9 ⭐",
+        "results-reviews-label": "durchschnittliche Bewertung",
+        "results-returns": "30 Tage",
+        "results-returns-label": "kostenlose Rückgabe",
+        "results-ship":
