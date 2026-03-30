@@ -917,3 +917,262 @@
         "faq-a1": "غالبًا ما تُصنع قبعات البيسبول عالية الجودة من قماش قطني، بوليستر، أو خليط قطني‑بوليستر. يمنح القطن مظهرًا كلاسيكيًا، بينما يضيف البوليستر المتانة ومقاومة الرطوبة. قبعات الشبكة أخف وزنًا وأكثر تهوية.",
         "faq-q2": "كيف أختار الحجم المناسب لقبعة البيسبول؟",
         "faq-a2": "تستخدم معظم الق
+        "faq-q2": "كيف أختار الحجم المناسب لقبعة البيسبول؟",
+        "faq-a2": "تستخدم معظم القبعات شرائطًا قابلة للضبط أو Snapback. قس محيط رأسك فوق الأذنين وانظر إلى جدول المقاسات للحصول على المقاس المناسب. إذا كنت بين مقاسين، اختر المقاس الأكبر.",
+        "faq-q3": "هل يمكنني الحصول على قبعات بسيبول مخصصة بشعار من Hats.com؟",
+        "faq-q3": "نعم. Hats.com يوفر قبعات بسيبول مخصصة يمكن تطريز أو طباعة الشعار عليها. يمكنك تحميل الشعار، اختيار الألوان، نوع الخط، والموقع، ثم طلب كميات صغيرة أو كبيرة للفرق، العلامات التجارية، أو الأحداث.",
+        "faq-q4": "كم من الوقت يستغرق شحن القبعات البيسبول؟",
+        "faq-a4": "عادة الشحن القياسي داخل الولايات المتحدة يستغرق 3–7 أيام عمل. تتوفر خيارات سريعة ودولية في الدفع. يمكنك تتبع طلبك عبر حساب Hats.com بعد الشحن.",
+        "disclosure": "تنويه: تحتوي هذه الصفحة على روابط تابعة إلى Hats.com. قد نحصل على عمولة بقيمة [COMMISSION %] مقابل المشتريات المؤهلة دون تكلفة إضافية لك. هذا يساعد على دعم الموقع والحفاظ على المحتوى المجاني.",
+        "footer-copyright": "© 2026 Baseball Caps Hub | قبعات رياضية عالية الجودة من Hats.com | [KEY PROOF]: أكثر من 50,000 عميل، نمو الإيرادات 10 أضعاف في 2025."
+      }
+    };
+
+    // Simple language‑switch helper
+    function setLang(lang) {
+      if (!translations[lang]) return;
+
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        const key = el.getAttribute("data-lang");
+        const text = translations[lang][key];
+        if (text) el.innerHTML = text.replace(/\[KEY PROOF\]/g, "50,000+ customers, 10x sales growth in 2025").replace(/\[COMMISSION %\]/g, "12%*");
+      });
+
+      // Update hreflang active lang class
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+      document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add("active");
+      document.documentElement.lang = lang;
+      localStorage.setItem("user-lang", lang);
+    }
+
+    // Auto‑detect and set lang (EN / ES / FR / DE / ZH / JA / RU / AR)
+    function detectLang() {
+      const saved = localStorage.getItem("user-lang");
+      if (saved && translations[saved]) return saved;
+
+      const browser = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+      if (browser.startsWith("es") && translations.es) return "es";
+      if (browser.startsWith("fr") && translations.fr) return "fr";
+      if (browser.startsWith("de") && translations.de) return "de";
+      if (browser.startsWith("zh") || browser.includes("zh")) return "zh";
+      if (browser.startsWith("ja") && translations.ja) return "ja";
+      if (browser.startsWith("ru") && translations.ru) return "ru";
+      if (browser.startsWith("ar") && translations.ar) return "ar";
+      return "en";
+    }
+
+    // Initialize on load
+    document.addEventListener("DOMContentLoaded", () => {
+      const lang = detectLang();
+      setLang(lang);
+
+      // Bind language‑switch buttons
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          setLang(btn.getAttribute("data-lang"));
+        });
+      });
+
+      // FAQ accordion toggle
+      document.querySelectorAll(".faq-question").forEach(q => {
+        q.addEventListener("click", () => {
+          const item = q.closest(".faq-item");
+          const answer = q.nextElementSibling;
+          const isOpen = item.classList.contains("open");
+
+          if (isOpen) {
+            item.classList.remove("open");
+            answer.hidden = true;
+          } else {
+            item.classList.add("open");
+            answer.hidden = false;
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Sticky nav -->
+  <nav class="sticky-nav" id="main-nav">
+    <div class="offset-spacer" id="nav-offset"></div>
+    <a href="#top" class="logo" data-lang="app-title">Baseball Caps | Premium Adjustable Hats</a>
+    <div class="language-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="zh">ZH</button>
+      <button class="lang-btn" data-lang="ja">JA</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+  </nav>
+
+  <!-- Red urgency bar -->
+  <div class="urgency-bar">
+    <strong>New styles added daily</strong> – Limited stock, fast shipping, and <strong>12%* affiliate commissions</strong>.
+  </div>
+
+  <!-- Hero section -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <h1 data-lang="hero-title">
+        <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">
+          Premium Baseball Caps – Custom Adjustable Hats
+        </a>
+      </h1>
+      <p data-lang="hero-desc">Find premium baseball caps, adjustable hats, MLB, NFL, custom logo & embroidered caps from Hats.com. Fast shipping, 30‑day returns, and affiliate program earning 12%* per sale. 50,000+ customers, 10x sales growth in 2025.</p>
+      <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" class="hero-cta" target="_blank" rel="noopener sponsored">Shop Premium Baseball Caps on Hats.com</a>
+    </div>
+  </section>
+
+  <!-- SEO‑intro (hidden text for indexing) -->
+  <div class="seo-intro">
+    <p>Buy premium baseball caps, adjustable baseball hats, custom logo baseball caps, embroidered baseball caps, MLB baseball caps, NFL baseball caps, snapback baseball caps, dad hat baseball caps, trucker caps, mesh baseball caps, cheap baseball caps, wholesale baseball caps, promotional baseball caps, and personalized baseball caps online from Hats.com. <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">Earn 12% commission on every Hats.com purchase</a>.</p>
+  </div>
+
+  <!-- Features grid -->
+  <section class="features">
+    <h2 class="section-title" data-lang="features-title">Why Choose Our Baseball Caps</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">👕</div>
+        <h3>High‑Quality Materials</h3>
+        <p>Premium cotton twill, polyester, and mesh backs for durability and breathability.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Custom Designs</h3>
+        <p>Upload your logo or team badge and get embroidery or screen print.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Adjustable Fit</h3>
+        <p>One‑size‑fits‑most with snapbacks, straps, and elastic bands.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚛</div>
+        <h3>Fast Shipping</h3>
+        <p>Most caps ship within 1–2 business days to US, EU, UK, CA, AU.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Loyal Partners</h3>
+        <p>Join our affiliate program and earn 12% commission on every qualifying Hats.com purchase.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>Proven Results</h3>
+        <p>50,000+ customers, 10x sales growth in 2025. <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">Hats.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results stats -->
+  <section class="results">
+    <h2 class="section-title" data-lang="results-title">Real Results, Real Customers</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" data-lang="results-sold">100,000+</span>
+        <span class="stat-label" data-lang="results-sold-label">baseball caps sold worldwide</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-lang="results-reviews">4.9⭐</span>
+        <span class="stat-label" data-lang="results-reviews-label">average customer rating</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-lang="results-returns">30‑day</span>
+        <span class="stat-label" data-lang="results-returns-label">free returns policy</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-lang="results-ship">3–7 days</span>
+        <span class="stat-label" data-lang="results-ship-label">standard US delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials carousel -->
+  <section class="testimonials">
+    <h2 class="section-title" data-lang="testimonials-title">What Customers Say</h2>
+    <div class="carousel">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The custom logo caps we ordered for our team look amazing. Quality is top notch and the shipping was fast. Would definitely buy again."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"></div>
+          <span>Mike T., Team Coach</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"As an affiliate, Hats.com has been a steady source of 12% commission income. The caps sell well and support is responsive."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"></div>
+          <span>Sarah K., Content Creator</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Got 200 promotional caps for our event. Everyone loved them, and the 30‑day return window made it easy to order confidently."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"></div>
+          <span>James R., Event Planner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing section -->
+  <section class="pricing">
+    <h2 class="section-title" data-lang="pricing-title">Simple Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier" data-lang="pricing-free">Free</div>
+        <div class="pricing-price">$0/mo</div>
+        <p data-lang="pricing-free-desc">Browse and promote <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">baseball caps from Hats.com</a> with no upfront cost.</p>
+        <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" class="pricing-cta" target="_blank" rel="noopener sponsored">Start Earning Now</a>
+      </div>
+      <div class="pricing-card popular">
+        <div class="pricing-tier" data-lang="pricing-pro">Pro</div>
+        <div class="pricing-price">$15/mo</div>
+        <p data-lang="pricing-pro-desc">Better tracking, higher 12% commission, and priority support on every Hats.com sale sent via <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">this link</a>.</p>
+        <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" class="pricing-cta" target="_blank" rel="noopener sponsored">Start Earning Now</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier" data-lang="pricing-custom">Custom</div>
+        <div class="pricing-price" data-lang="pricing-custom-amount">Custom</div>
+        <p data-lang="pricing-custom-desc">Tailored solutions for brands, teams, and agencies purchasing via <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" rel="noopener sponsored">Hats.com</a>.</p>
+        <a href="#contact" class="pricing-cta">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ accordion -->
+  <section class="faq">
+    <h2 class="section-title" data-lang="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-lang="faq-q1">What are the best materials for a baseball cap?</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p data-lang="faq-a1">Premium baseball caps are usually made from cotton twill, polyester, or a cotton–poly blend. Cotton twill offers a classic look, while polyester and blends add durability and moisture resistance. Mesh‑backed caps are lighter and more breathable for hot weather.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-lang="faq-q2">How do I choose the right size for a baseball cap?</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p data-lang="faq-a2">Most baseball caps use adjustable straps or snapbacks. Measure your head circumference just above the ears and use the size chart on the product page to find the correct fit. If you are between sizes, choose the larger one for comfort.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-lang="faq-q3">Can I get custom logo baseball caps from Hats.com?</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p data-lang="faq-a3">Yes. Hats.com offers custom logo baseball caps with embroidery or screen printing. You can upload your logo, choose colors, font style, and placement, then order small or bulk quantities for
