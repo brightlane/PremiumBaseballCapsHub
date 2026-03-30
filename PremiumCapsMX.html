@@ -1,4 +1,3 @@
-1,348 +1 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -85,6 +84,13 @@ body {
   margin-bottom:40px;
   text-shadow:0 0 60px rgba(0,242,96,0.6);
   animation:heroGlow 3s ease-in-out infinite alternate;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.hero-title:hover {
+  filter: drop-shadow(0 0 50px rgba(0,242,96,1));
+  transform: scale(1.02);
 }
 @keyframes heroGlow {
   from {filter: drop-shadow(0 0 20px rgba(0,242,96,0.5));}
@@ -106,6 +112,8 @@ body {
   position:relative;
   overflow:hidden;
   animation:ultraBounce 2s infinite;
+  text-decoration: none;
+  display: inline-block;
 }
 .ultra-cta::before {
   content:'';
@@ -201,7 +209,7 @@ body {
 
 /* All your original sections + ultra features preserved */
 .features, .table-section, .stats, .testimonials, .pricing, .faq {padding:100px 5%;}
- /* Same premium styling as before */
+/* Same premium styling as before */
 
 .footer {
   background:linear-gradient(180deg,#000 0%,#1a1a2e 100%);
@@ -242,14 +250,14 @@ body {
 
 <!-- STOCK COUNTER -->
 <div class="stock-bar">
-  <strong>¡STOCK VIVO:</strong> <span id="stock-counter">37</span> gorras premium | 
+  <strong>¡STOCK VIVO:</strong> <span id="stock-counter">37</span> gorras premium |
   15% Comisión | <i class="fas fa-fire"></i> CDMX 24h <i class="fas fa-fire"></i>
 </div>
 
-<!-- HERO ULTRA -->
+<!-- HERO ULTRA - HEADLINE & CTA NOW CLICKABLE WITH YOUR AFFILIATE LINK -->
 <section class="hero-content" data-aos="fade-up">
-  <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">GORRAS<br><span>ULTRA</span></h1>
-  <a href="TU_AFILIATE_LINK" class="ultra-cta" data-aos="flip-left" data-aos-delay="400">
+  <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F" class="hero-title" data-aos="zoom-in" data-aos-delay="200" target="_blank">GORRAS<br><span>ULTRA</span></a>
+  <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F" class="ultra-cta" data-aos="flip-left" data-aos-delay="400" target="_blank">
     <i class="fas fa-bolt"></i> ¡CATÁLOGO + STOCK!
   </a>
   <p style="margin-top:30px; opacity:0.9; font-size:1.4rem;" data-aos="fade-up" data-aos-delay="600">
@@ -347,4 +355,3 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
-<!DOCTYPE
