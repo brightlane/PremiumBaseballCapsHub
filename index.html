@@ -4,61 +4,96 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PremiumBaseballCapsHub | Premium Selection, Fast Shipping</title>
-  <meta name="description" content="Shop premium baseball caps at PremiumBaseballCapsHub. 10K+ selection, 2-day shipping, 30-day returns. Beats Amazon, New Era, Lids. MLB licensed.">
+  <meta name="description" content="Shop premium baseball caps at PremiumBaseballCapsHub. 10K+ selection, 2-day shipping, 30-day returns.">
   <link rel="canonical" href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" />
-  <style>/* Same styles as previous - keeping it compact */</style>
+  <style>/* Your existing styles */</style>
 </head>
 <body>
-  <!-- Rest of page content (hero, comparison, testimonials, etc.) -->
+  <!-- Your existing page content -->
   <header><!-- navigation --></header>
   <main><!-- hero, sections --></main>
   <footer>
-    <!-- Footer links -->
-    <a href="https://hats.com/pages/contact" id="contactBtn" target="_blank" style="color:#fff;text-decoration:none;">Contact Us</a> |
-    <a href="#" style="color:#fff;text-decoration:none;">Privacy</a> |
-    <a href="#" style="color:#fff;text-decoration:none;">Legal</a>
+    <a href="https://hats.com/pages/contact" class="contact-link" target="_blank">Contact Us</a> |
+    <a href="#">Privacy</a> |
+    <a href="#">Legal</a>
   </footer>
 
   <script>
-    // Dynamic current year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // ONLY show exit popup if they try to contact hats.com (catches all attempts)
-    document.addEventListener('click', function(e) {
-      if (e.target.id === 'contactBtn' || e.target.href?.includes('hats.com/pages/contact')) {
-        sessionStorage.setItem('triedContactHats', 'true');
+    // 🔥 FIXED - Works on ANY page, shows page content immediately
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Check if they tried contacting hats.com (show popup if true)
+      if (sessionStorage.getItem('triedContactHats') === 'true') {
+        setTimeout(showContactModal, 1500);
+        sessionStorage.removeItem('triedContactHats');
+        return;
       }
+
+      // Watch ALL clicks for hats.com contact links
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href*="hats.com/pages/contact"]');
+        if (link) {
+          sessionStorage.setItem('triedContactHats', 'true');
+        }
+      });
     });
 
-    // Check on EVERY page load/refresh if they previously tried contacting hats.com
-    if (sessionStorage.getItem('triedContactHats') === 'true') {
-      setTimeout(() => {
-        showContactModal();
-        sessionStorage.removeItem('triedContactHats'); // One-time use
-      }, 1500);
-    }
-
-    // Exit Modal - triggers ONLY if they try to contact hats.com
     function showContactModal() {
+      // Create modal
       const modal = document.createElement('div');
       modal.id = 'contactExitModal';
-      modal.className = 'modal';
-      modal.style.cssText = 'display:flex;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);z-index:9999;justify-content:center;align-items:center';
+      modal.style.cssText = `
+        display:flex !important;
+        position:fixed;
+        top:0;left:0;width:100vw;height:100vh;
+        background:rgba(0,0,0,.95);
+        z-index:99999;
+        justify-content:center;align-items:center;
+        font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+      `;
       
       modal.innerHTML = `
-        <div style="background:#fff;border-radius:24px;padding:48px;max-width:520px;width:92%;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.7);position:relative">
-          <span class="close" onclick="closeContactModal()" style="position:absolute;top:20px;right:28px;font-size:36px;cursor:pointer;color:#666;font-weight:900">&times;</span>
-          <h2 style="color:#1a1a1a;margin-bottom:20px;font-size:2.2rem">🛑 Thanks for checking contact info!</h2>
-          <p style="font-size:1.1rem;color:#444;margin-bottom:32px;line-height:1.6">
+        <div style="
+          background:#fff;
+          border-radius:24px;
+          padding:48px;
+          max-width:520px;
+          width:92%;
+          text-align:center;
+          box-shadow:0 40px 80px rgba(0,0,0,.7);
+          position:relative;
+          max-height:90vh;
+          overflow:auto;
+        ">
+          <span class="close" onclick="closeContactModal()" style="
+            position:absolute;top:20px;right:28px;
+            font-size:36px;cursor:pointer;color:#666;
+            font-weight:900;line-height:1;
+          ">&times;</span>
+          <h2 style="color:#1a1a1a;margin:0 0 20px 0;font-size:2.2rem;">
+            🛑 Thanks for checking contact info!
+          </h2>
+          <p style="font-size:1.1rem;color:#444;margin-bottom:32px;line-height:1.6;">
             While you're here, grab your perfect baseball cap:<br>
             <strong>⚡ 2-day shipping • 🆓 Free returns • 🏆 MLB authentic</strong>
           </p>
-          <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" target="_blank" class="cta" rel="sponsored" style="background:linear-gradient(135deg,#ff3b30,#ff7a18);color:#fff;padding:20px 40px;border-radius:50px;font-weight:900;font-size:1.2rem;text-decoration:none;display:inline-block;box-shadow:0 15px 35px rgba(255,59,48,.4)">🛒 Shop Baseball Caps Now</a>
+          <a href="https://www.linkconnector.com/ta.php?lc=007949000012003621&atid=HatsWebWebWeb&url=https%3A%2F%2Fhats.com%2F%3Fq%3Dstacked%2Bbaseball%2Bcap" 
+             target="_blank" rel="sponsored" 
+             style="
+              background:linear-gradient(135deg,#ff3b30,#ff7a18);
+              color:#fff !important;
+              padding:20px 40px;
+              border-radius:50px;
+              font-weight:900;
+              font-size:1.2rem;
+              text-decoration:none;
+              display:inline-block;
+              box-shadow:0 15px 35px rgba(255,59,48,.4);
+            ">🛒 Shop Baseball Caps Now</a>
         </div>
       `;
       
       document.body.appendChild(modal);
-      modal.style.display = 'flex';
     }
 
     function closeContactModal() {
@@ -66,13 +101,11 @@
       if (modal) modal.remove();
     }
 
-    // Close modal on outside click or ESC
-    document.addEventListener('click', function(e) {
-      if (e.target.id === 'contactExitModal') {
-        closeContactModal();
-      }
+    // Global close handlers
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'contactExitModal') closeContactModal();
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeContactModal();
     });
   </script>
