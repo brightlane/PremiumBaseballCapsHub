@@ -369,3 +369,103 @@
   </script>
 </body>
 </html>
+          links.</p>
+          <a href="https://hats.com/pages/affiliates" class="cta-btn" style="margin-top: 1rem; display: inline-block;">Get Pro</a>
+        </div>
+        <div class="price-card">
+          <h3>Custom</h3>
+          <div class="price-amount">Custom</div>
+          <p>Tailored plans for high‑volume affiliates.</p>
+          <a href="https://hats.com/pages/affiliates" class="cta-btn" style="margin-top: 1rem; display: inline-block;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2>FAQs</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What is the commission rate? <span>▼</span>
+        </div>
+        <div class="faq-answer">Up to 12% on sales you refer. Tiered rewards for higher volume.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I join the program? <span>▼</span>
+        </div>
+        <div class="faq-answer">Click the join links. Free and easy signup.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What makes these caps premium? <span>▼</span>
+        </div>
+        <div class="faq-answer">High‑quality materials, breathable, adjustable fit for all‑day comfort.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with repaired funnel links -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Premium Caps Affiliate. Promoting <a href="https://hats.com/" style="color: #ccc;">Hats.com</a>.</p>
+      <div class="badges">
+        <div class="badge" title="SSL Secure"></div>
+        <div class="badge" title="Secure Payments"></div>
+        <div class="badge" title="Trustpilot"></div>
+      </div>
+
+      <!-- Funnel CTA below the badges -->
+      <section class="funnel-cta">
+        <p style="margin-bottom: 0.75rem;">Go to a page in the funnel:</p>
+        <div>
+          <a href="baseballcaps.html" class="cta-btn" style="margin: 0.3rem; padding: 0.75rem 1.5rem;">Baseball Caps</a>
+          <a href="premiumbaseballcaps.html" class="cta-btn" style="margin: 0.3rem; padding: 0.75rem 1.5rem;">Premium Caps</a>
+          <a href="earn-12-percent-commission-baseball-caps.html" class="cta-btn" style="margin: 0.3rem; padding: 0.75rem 1.5rem;">12% Commission Hub</a>
+        </div>
+      </section>
+    </div>
+  </footer>
+
+  <script>
+    // Language Switcher
+    const langs = ['EN', 'ES', 'FR', 'DE', 'ZH', 'JA', 'RU', 'AR'];
+    const langSwitcher = document.getElementById('langSwitcher');
+    langs.forEach(lang => {
+      const btn = document.createElement('button');
+      btn.className = 'lang-btn';
+      btn.textContent = lang;
+      btn.onclick = () => { /* real link per lang later */ };
+      langSwitcher.appendChild(btn);
+    });
+
+    // Carousel
+    let currentSlide = 0;
+    const track = document.getElementById('carouselTrack');
+    const totalSlides = 3;
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    setInterval(nextSlide, 5000);
+
+    // FAQ Toggle
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Mobile Menu Toggle
+    document.querySelector('.menu-toggle').onclick = () => {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    };
+  </script>
+</body>
+</html>
