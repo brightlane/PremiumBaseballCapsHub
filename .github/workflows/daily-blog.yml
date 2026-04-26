@@ -1,0 +1,29 @@
+name: Daily Blog Writer
+
+on:
+  schedule:
+    - cron: "0 8 * * *"   # every day 8AM UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10
+
+    - name: Generate Blog
+      run: python daily-generator.py
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "seo-bot"
+        git config --global user.email "bot@users.noreply.github.com"
+        git add .
+        git commit -m "Daily SEO blog update"
+        git push
